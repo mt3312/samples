@@ -8,6 +8,11 @@
 
 'use strict';
 
+
+ const audioSelect = document.querySelector('select#audioSrc'); //UPDATED THE ORIGINAL CODE: MOVED THESE DECLARATIONS UP SO THAT THE FUNCTION INIT ACTUALLY RUNS
+ const videoSelect = document.querySelector('select#videoSrc');
+ const selectSourceDiv = document.querySelector('div#selectSource');
+
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
@@ -39,15 +44,10 @@ async function init() {
   const offerSdpTextarea = document.querySelector('div#local textarea');
   const answerSdpTextarea = document.querySelector('div#remote textarea');
 
-  const audioSelect = document.querySelector('select#audioSrc');
-  const videoSelect = document.querySelector('select#videoSrc');
-
   audioSelect.onchange = videoSelect.onchange = getMedia;
 
   const localVideo = document.querySelector('div#local video');
   const remoteVideo = document.querySelector('div#remote video');
-
-  const selectSourceDiv = document.querySelector('div#selectSource');
 
   let localPeerConnection;
   let remotePeerConnection;
